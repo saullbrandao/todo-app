@@ -1,7 +1,10 @@
+import { Header } from 'components/Header'
+import { TopSection } from 'components/TopSection'
+
 export function Home() {
   return (
-    <main>
-      <h1>Hello World</h1>
+    <main className="h-screen">
+      <TopSection />
     </main>
   )
 }
