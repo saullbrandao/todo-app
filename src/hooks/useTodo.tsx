@@ -14,6 +14,7 @@ type TodoContextType = {
   todoList: ListItem[]
   addItem: (item: ListItem) => void
   removeItem: (id: string) => void
+  handleCheck: (id: string) => void
 }
 
 const TodoContext = createContext({} as TodoContextType)
@@ -36,8 +37,24 @@ export function TodoContextProvider(props: TodoContextProviderProps) {
     setTodoList(newList)
   }
 
+  function handleCheck(id: string) {
+    const updatedList = todoList.map(item => {
+      if (item.id === id) {
+        return {
+          ...item,
+          checked: !item.checked,
+        }
+      }
+      return item
+    })
+
+    setTodoList(updatedList)
+  }
+
   return (
-    <TodoContext.Provider value={{ todoList, addItem, removeItem }}>
+    <TodoContext.Provider
+      value={{ todoList, addItem, removeItem, handleCheck }}
+    >
       {props.children}
     </TodoContext.Provider>
   )
