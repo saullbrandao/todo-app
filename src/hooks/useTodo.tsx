@@ -13,6 +13,7 @@ type ListItem = {
 type TodoContextType = {
   todoList: ListItem[]
   addItem: (item: ListItem) => void
+  removeItem: (id: string) => void
 }
 
 const TodoContext = createContext({} as TodoContextType)
@@ -30,8 +31,13 @@ export function TodoContextProvider(props: TodoContextProviderProps) {
     setTodoList(prevState => [...prevState, item])
   }
 
+  function removeItem(id: string) {
+    const newList = todoList.filter(item => item.id !== id)
+    setTodoList(newList)
+  }
+
   return (
-    <TodoContext.Provider value={{ todoList, addItem }}>
+    <TodoContext.Provider value={{ todoList, addItem, removeItem }}>
       {props.children}
     </TodoContext.Provider>
   )
