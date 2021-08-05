@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useState } from 'react'
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
 
 type TodoContextProviderProps = {
   children: ReactNode
@@ -10,24 +10,45 @@ type ListItem = {
   checked: boolean
 }
 
+type ListFilter = 'all' | 'active' | 'completed'
+
 type TodoContextType = {
-  todoList: ListItem[]
+  filteredList: ListItem[],
   addItem: (item: ListItem) => void
   removeItem: (id: string) => void
   handleCheck: (id: string) => void
   clearCompleted: () => void
+  handleFilter: (filter: ListFilter) => void
 }
 
 const TodoContext = createContext({} as TodoContextType)
 
 export function TodoContextProvider(props: TodoContextProviderProps) {
-  const [todoList, setTodoList] = useState([
+  const [todoList, setTodoList] = useState<ListItem[]>([
     { value: 'Number 1', id: '1', checked: false },
     { value: 'Number 2', id: '2', checked: false },
     { value: 'Number 3', id: '3', checked: true },
     { value: 'Number 4', id: '4', checked: false },
     { value: 'Number 5', id: '5', checked: false },
   ])
+  const [filteredList, setFilteredList] = useState<ListItem[]>(todoList)
+  const [filter, setFilter] = useState<ListFilter>('all')
+
+  useEffect(() => {
+    switch(filter){
+      case 'all':
+        setFilteredList(todoList)
+        break
+      case 'active': 
+        setFilteredList(todoList.filter(item => !item.checked))
+        break
+      case 'completed': 
+        setFilteredList(todoList.filter(item => item.checked))
+        break
+      default:
+        break
+    }
+  }, [filter, todoList])
 
   function addItem(item: ListItem) {
     setTodoList(prevState => [...prevState, item])
@@ -41,6 +62,10 @@ export function TodoContextProvider(props: TodoContextProviderProps) {
   function clearCompleted() {
     const newList = todoList.filter(item => !item.checked)
     setTodoList(newList)
+  }
+
+  function handleFilter(filter: ListFilter){
+    setFilter(filter)
   }
 
   function handleCheck(id: string) {
@@ -59,7 +84,7 @@ export function TodoContextProvider(props: TodoContextProviderProps) {
 
   return (
     <TodoContext.Provider
-      value={{ todoList, addItem, removeItem, handleCheck, clearCompleted }}
+      value={{ filteredList, addItem, removeItem, handleCheck, clearCompleted, handleFilter }}
     >
       {props.children}
     </TodoContext.Provider>
