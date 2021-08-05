@@ -14,6 +14,7 @@ type ListFilter = 'all' | 'active' | 'completed'
 
 type TodoContextType = {
   filteredList: ListItem[],
+  filter: ListFilter,
   addItem: (item: ListItem) => void
   removeItem: (id: string) => void
   handleCheck: (id: string) => void
@@ -84,7 +85,7 @@ export function TodoContextProvider(props: TodoContextProviderProps) {
 
   return (
     <TodoContext.Provider
-      value={{ filteredList, addItem, removeItem, handleCheck, clearCompleted, handleFilter }}
+      value={{ filteredList,filter, addItem, removeItem, handleCheck, clearCompleted, handleFilter }}
     >
       {props.children}
     </TodoContext.Provider>
