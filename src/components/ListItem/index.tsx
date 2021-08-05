@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { CheckBox } from 'components/CheckBox'
 import { useTodo } from 'hooks/useTodo'
 import { ListItemProps } from './types'
+import { CrossIcon } from 'components/CrossIcon'
 
 export function ListItem({ item }: ListItemProps) {
   const { removeItem, handleCheck } = useTodo()
@@ -15,7 +16,7 @@ export function ListItem({ item }: ListItemProps) {
           onChange={() => handleCheck(item.id)}
         />
         <label
-          className={`flex-1 py-4 text-sm text-dark-gray-500 font-bold ${
+          className={`flex-1 py-4 text-sm text-dark-gray-500 font-bold cursor-pointer ${
             item.checked && 'line-through text-dark-gray-300 '
           }`}
           htmlFor={item.id}
@@ -23,13 +24,7 @@ export function ListItem({ item }: ListItemProps) {
           {item.value}
         </label>
       </div>
-      <Image
-        src="/icon-cross.svg"
-        width={18}
-        height={18}
-        alt="Cross sign"
-        onClick={() => removeItem(item.id)}
-      />
+      <CrossIcon className='cursor-pointer fill-current text-light-gray-500 hover:text-light-gray-400' height={18} width={18} onClick={() => removeItem(item.id)}/>
     </li>
   )
 }
