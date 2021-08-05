@@ -16,8 +16,8 @@ export function ListItem({ item }: ListItemProps) {
           onChange={() => handleCheck(item.id)}
         />
         <label
-          className={`flex-1 py-4 text-sm text-dark-gray-500 font-bold cursor-pointer ${
-            item.checked && 'line-through text-dark-gray-300 '
+          className={`flex-1 py-4 text-sm text-dark-gray-500 dark:text-white cursor-pointer ${
+            item.checked && 'line-through text-dark-gray-300 dark:text-dark-gray-500 '
           }`}
           htmlFor={item.id}
         >

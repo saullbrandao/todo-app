@@ -26,7 +26,7 @@ export function Form() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-full h-12 rounded-md bg-white items-center gap-4 px-5 focus-within:ring-1 ring-black"
+      className="flex w-full h-12 rounded-md bg-white dark:bg-dark-blue-800 items-center gap-4 px-5 focus-within:ring-1 ring-black"
     >
       <CheckBox readOnly checked={false} />
       <Input onChange={handleItem} value={item} />
