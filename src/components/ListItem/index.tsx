@@ -7,7 +7,7 @@ export function ListItem({ item }: ListItemProps) {
   const { removeItem, handleCheck } = useTodo()
 
   return (
-    <li className="flex justify-between items-center gap-4 w-full px-5 py-4 ">
+    <li className="flex justify-between items-center gap-4 w-full px-5  ">
       <div className="flex flex-1 gap-4 items-center">
         <CheckBox
           id={item.id}
@@ -15,7 +15,7 @@ export function ListItem({ item }: ListItemProps) {
           onChange={() => handleCheck(item.id)}
         />
         <label
-          className={`flex-1 text-sm text-dark-gray-500 font-bold ${
+          className={`flex-1 py-4 text-sm text-dark-gray-500 font-bold ${
             item.checked && 'line-through text-dark-gray-300 '
           }`}
           htmlFor={item.id}
