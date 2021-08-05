@@ -11,7 +11,7 @@ export function List() {
       ))}
       <li className="flex justify-between w-full px-3 py-4 text-light-gray-400 text-sm">
         <span>{filteredList.length} items left</span>
-        <button onClick={() => clearCompleted()}>Clear Completed</button>
+        <button className='hover:text-light-gray-500' onClick={() => clearCompleted()}>Clear Completed</button>
       </li>
     </ul>
   )
