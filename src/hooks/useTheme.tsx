@@ -13,10 +13,8 @@ type ThemeContextProviderProps = {
 
 const ThemeContext = createContext({} as ThemeContextType)
 
-
-
 export function ThemeContextProvider(props: ThemeContextProviderProps) {
-  const [theme, setTheme] = useState<Theme>('dark')
+  const [theme, setTheme] = useState<Theme>('light')
 
   function handleTheme() {
     theme === 'light'
@@ -25,9 +23,24 @@ export function ThemeContextProvider(props: ThemeContextProviderProps) {
   }
 
   useEffect(() => {
-    theme === 'light'
-      ? document.documentElement.classList.remove('dark')
-      : document.documentElement.classList.add('dark')
+    // check if the theme is stored on localStorage
+    // if not, check if the user's system preferred color scheme is set to dark
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      setTheme('dark')
+    } else {
+      setTheme('light')
+    }
+  }, [])
+
+  useEffect(() => {
+    if(theme === 'light') {
+      document.documentElement.classList.remove('dark')
+      localStorage.theme = 'light'
+    }else {
+      document.documentElement.classList.add('dark')
+      localStorage.theme = 'dark'
+    }
   }, [theme])
 
   return (
