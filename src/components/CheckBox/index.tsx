@@ -14,11 +14,11 @@ export function CheckBox({
         checked={checked}
         {...restProps}
         type="checkbox"
-        className="z-10 w-full h-full appearance-none border border-light-gray-300 dark:border-dark-gray-400 rounded-full checked:bg-gradient-to-br from-gradient-start to-gradient-end"
+        className="z-10 w-full h-full appearance-none cursor-pointer border border-light-gray-300 dark:border-dark-gray-400 rounded-full checked:bg-gradient-to-br from-gradient-start to-gradient-end"
       />
       <label
         htmlFor={id}
-        className={`absolute z-0 top-[-1px] left-[30%]  ${
+        className={`absolute cursor-pointer z-0 top-[-1px] left-[30%]  ${
           !checked && 'hidden'
         }`}
       >
