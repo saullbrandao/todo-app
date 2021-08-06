@@ -17,14 +17,20 @@ export function ListItem({ item }: ListItemProps) {
         />
         <label
           className={`flex-1 py-4 text-sm text-dark-gray-500 dark:text-dark-gray-100 cursor-pointer ${
-            item.checked && 'line-through text-dark-gray-300 dark:text-dark-gray-500 '
+            item.checked &&
+            'line-through text-dark-gray-300 dark:text-dark-gray-500 '
           }`}
           htmlFor={item.id}
         >
           {item.value}
         </label>
       </div>
-      <CrossIcon className='cursor-pointer fill-current text-light-gray-500 hover:text-light-gray-400' height={18} width={18} onClick={() => removeItem(item.id)}/>
+      <CrossIcon
+        className="cursor-pointer fill-current text-light-gray-500 hover:text-light-gray-400"
+        height={18}
+        width={18}
+        onClick={() => removeItem(item.id)}
+      />
     </li>
   )
 }
