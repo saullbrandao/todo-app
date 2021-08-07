@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 
 type TodoContextProviderProps = {
   children: ReactNode
@@ -13,8 +19,8 @@ type ListItem = {
 type ListFilter = 'all' | 'active' | 'completed'
 
 type TodoContextType = {
-  filteredList: ListItem[],
-  filter: ListFilter,
+  filteredList: ListItem[]
+  filter: ListFilter
   addItem: (item: ListItem) => void
   removeItem: (id: string) => void
   handleCheck: (id: string) => void
@@ -25,25 +31,30 @@ type TodoContextType = {
 const TodoContext = createContext({} as TodoContextType)
 
 export function TodoContextProvider(props: TodoContextProviderProps) {
-  const [todoList, setTodoList] = useState<ListItem[]>([
-    { value: 'Number 1', id: '1', checked: false },
-    { value: 'Number 2', id: '2', checked: false },
-    { value: 'Number 3', id: '3', checked: true },
-    { value: 'Number 4', id: '4', checked: false },
-    { value: 'Number 5', id: '5', checked: false },
-  ])
+  const [todoList, setTodoList] = useState<ListItem[]>([])
   const [filteredList, setFilteredList] = useState<ListItem[]>(todoList)
   const [filter, setFilter] = useState<ListFilter>('all')
 
+  // on mount set todo list state with tasks saved on localStorage
   useEffect(() => {
-    switch(filter){
+    const list = JSON.parse(localStorage?.tasks)
+    setTodoList(list)
+  }, [])
+
+  // every time the todoList changes save it to the localStorage
+  useEffect(() => {
+    localStorage.tasks = JSON.stringify(todoList)
+  }, [todoList])
+
+  useEffect(() => {
+    switch (filter) {
       case 'all':
         setFilteredList(todoList)
         break
-      case 'active': 
+      case 'active':
         setFilteredList(todoList.filter(item => !item.checked))
         break
-      case 'completed': 
+      case 'completed':
         setFilteredList(todoList.filter(item => item.checked))
         break
       default:
@@ -65,7 +76,7 @@ export function TodoContextProvider(props: TodoContextProviderProps) {
     setTodoList(newList)
   }
 
-  function handleFilter(filter: ListFilter){
+  function handleFilter(filter: ListFilter) {
     setFilter(filter)
   }
 
@@ -85,7 +96,15 @@ export function TodoContextProvider(props: TodoContextProviderProps) {
 
   return (
     <TodoContext.Provider
-      value={{ filteredList,filter, addItem, removeItem, handleCheck, clearCompleted, handleFilter }}
+      value={{
+        filteredList,
+        filter,
+        addItem,
+        removeItem,
+        handleCheck,
+        clearCompleted,
+        handleFilter,
+      }}
     >
       {props.children}
     </TodoContext.Provider>
