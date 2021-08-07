@@ -6,7 +6,7 @@ export function Input(props: InputHTMLAttributes<HTMLInputElement>) {
       {...props}
       type="text"
       placeholder="Create a new todo..."
-      className="flex-1 rounded-md text-sm py-2 outline-none dark:bg-dark-blue-800 dark:text-dark-gray-100"
+      className="flex-1 py-2 outline-none rounded-md text-sm dark:bg-dark-blue-800 dark:text-dark-gray-100"
     />
   )
 }
