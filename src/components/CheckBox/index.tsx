@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { InputHTMLAttributes } from 'react'
-import checkIcon from 'public/icon-check.svg'
+
 export function CheckBox({
   checked,
   id,
@@ -17,11 +17,11 @@ export function CheckBox({
       />
       <label
         htmlFor={id}
-        className={`absolute z-0 top-[-1px] left-[30%] cursor-pointer ${
-          !checked && 'hidden'
-        }`}
+        className={`h-3 w-3 absolute z-0 top-[25%] left-[25%] cursor-pointer`}
       >
-        <Image src={checkIcon} alt="checkbox mark" />
+        {checked && (
+          <Image src="/icon-check.svg" layout="fill" alt="checkbox mark" />
+        )}
       </label>
     </div>
   )
