@@ -37,7 +37,7 @@ export function TodoContextProvider(props: TodoContextProviderProps) {
 
   // on mount set todo list state with tasks saved on localStorage
   useEffect(() => {
-    const list = JSON.parse(localStorage?.tasks)
+    const list = localStorage.tasks ? JSON.parse(localStorage.tasks) : []
     setTodoList(list)
   }, [])
 
