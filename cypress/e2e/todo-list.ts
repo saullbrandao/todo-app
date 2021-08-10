@@ -60,3 +60,6 @@ describe('Todo List', () => {
     cy.findByText('task 4').should('not.exist')
   })
 })
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default {}

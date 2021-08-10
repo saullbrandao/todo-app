@@ -6,3 +6,6 @@ describe('dark mode', () => {
     cy.get('html').should('have.class', 'dark')
   })
 })
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default {}
