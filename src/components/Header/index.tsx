@@ -13,7 +13,7 @@ export function Header() {
         src={`${theme === 'light' ? '/icon-moon.svg' : '/icon-sun.svg'}`}
         height={22}
         width={22}
-        alt="moon icon"
+        alt={`${theme === 'light' ? 'moon icon' : 'sun icon'}`}
       />
     </header>
   )
