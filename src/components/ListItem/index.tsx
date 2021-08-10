@@ -27,6 +27,8 @@ export function ListItem({ item }: ListItemProps) {
       </div>
       <CrossIcon
         className="fill-current text-light-gray-500 hover:text-light-gray-400 cursor-pointer"
+        aria-label="delete task"
+        aria-role="button"
         height={18}
         width={18}
         onClick={() => removeItem(item.id)}
