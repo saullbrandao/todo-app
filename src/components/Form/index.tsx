@@ -13,14 +13,16 @@ export function Form() {
 
   function handleSubmit(event: SyntheticEvent) {
     event.preventDefault()
-    const id = `${item}${Date.now()}`
-    const newItem = {
-      value: item,
-      id,
-      checked: false,
+    if (item.trim()) {
+      const id = `${item}${Date.now()}`
+      const newItem = {
+        value: item,
+        id,
+        checked: false,
+      }
+      addItem(newItem)
+      setItem('')
     }
-    addItem(newItem)
-    setItem('')
   }
 
   return (
