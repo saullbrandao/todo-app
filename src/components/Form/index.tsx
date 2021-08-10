@@ -16,7 +16,7 @@ export function Form() {
     if (item.trim()) {
       const id = `${item}${Date.now()}`
       const newItem = {
-        value: item,
+        value: item.trim(),
         id,
         checked: false,
       }
