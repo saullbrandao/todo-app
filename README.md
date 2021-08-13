@@ -50,6 +50,7 @@
 - Todos are saved to localStorage for persistence
 - Toggle light and dark mode
 - Responsive layout
+- Tested using Jest, React Testing Library and Cypress
 
 # :computer: Technologies
 
