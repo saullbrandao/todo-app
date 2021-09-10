@@ -41,8 +41,8 @@
 
 # :page_with_curl: About the Project
 
-![todo-app](https://raw.githubusercontent.com/saullbrandao/todo-app/main/light-demo.png)
-![todo-app](https://raw.githubusercontent.com/saullbrandao/todo-app/main/dark-demo.png)
+![todo-app](https://raw.githubusercontent.com/saullbrandao/todo-app/main/demo-light.png)
+![todo-app](https://raw.githubusercontent.com/saullbrandao/todo-app/main/demo-dark.png)
 
 - Can add, mark as completed and delete todos
 - Filter by all/active/complete todos
