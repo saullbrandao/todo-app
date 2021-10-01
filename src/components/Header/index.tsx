@@ -1,19 +1,33 @@
-import { useTheme } from 'hooks/useTheme'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 export function Header() {
-  const { theme, handleTheme } = useTheme()
+  const [darkMode, setDarkMode] = useState<boolean | undefined>(undefined)
+
+  useEffect(() => {
+    setDarkMode(document.documentElement.classList.contains('dark'))
+  }, [])
+
+  useEffect(() => {
+    if (darkMode) {
+      window.document.documentElement.classList.add('dark')
+      localStorage.setItem('vidyaDarkMode', 'true')
+    } else {
+      window.document.documentElement.classList.remove('dark')
+      localStorage.setItem('vidyaDarkMode', 'false')
+    }
+  }, [darkMode])
 
   return (
     <header className="flex justify-between items-center lg:w-1/2 xl:w-1/3">
       <h1 className="text-3xl font-bold text-white tracking-wide">T O D O</h1>
       <Image
-        onClick={handleTheme}
+        onClick={() => setDarkMode(!darkMode)}
         className="cursor-pointer"
-        src={`${theme === 'light' ? '/icon-moon.svg' : '/icon-sun.svg'}`}
+        src={`${darkMode ? '/icon-sun.svg' : '/icon-moon.svg'}`}
         height={22}
         width={22}
-        alt={`${theme === 'light' ? 'moon icon' : 'sun icon'}`}
+        alt={`${darkMode ? 'sun icon' : 'moon icon'}`}
       />
     </header>
   )
