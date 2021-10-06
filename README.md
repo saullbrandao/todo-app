@@ -45,12 +45,11 @@
 ![todo-app](https://raw.githubusercontent.com/saullbrandao/todo-app/main/demo-dark.png)
 
 - Can add, mark as completed and delete todos
-- Filter by all/active/complete todos
-- Clear all completed todos
-- Todos are saved to localStorage for persistence
-- Toggle light and dark mode
+- Filter by all/active/complete tasks
+- Clear all completed tasks
+- Tasks are saved to localStorage for persistence
+- Light and dark mode
 - Responsive layout
-- Tested using Jest, React Testing Library and Cypress
 
 # :computer: Technologies
 
