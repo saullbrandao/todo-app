@@ -8,7 +8,7 @@ export function HomeTemplate() {
       <Head>
         <title>Todo App</title>
       </Head>
-      <main className="flex flex-col h-screen w-screen mx-auto bg-light-gray-100 dark:bg-dark-blue-900">
+      <main className="flex flex-col h-screen w-full mx-auto bg-light-gray-100 dark:bg-dark-blue-900">
         <TopSection />
         <ListSection />
       </main>
