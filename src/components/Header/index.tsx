@@ -11,10 +11,10 @@ export function Header() {
   useEffect(() => {
     if (darkMode) {
       window.document.documentElement.classList.add('dark')
-      localStorage.setItem('vidyaDarkMode', 'true')
+      localStorage.setItem('darkMode', 'true')
     } else {
       window.document.documentElement.classList.remove('dark')
-      localStorage.setItem('vidyaDarkMode', 'false')
+      localStorage.setItem('darkMode', 'false')
     }
   }, [darkMode])
 
