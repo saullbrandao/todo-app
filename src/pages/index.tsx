@@ -1,13 +1,5 @@
-import Head from 'next/head'
-import { Home } from 'templates/Home'
+import { HomeTemplate } from 'templates/HomeTemplate'
 
 export default function HomePage() {
-  return (
-    <>
-      <Head>
-        <title>Todo App</title>
-      </Head>
-      <Home />
-    </>
-  )
+  return <HomeTemplate />
 }
