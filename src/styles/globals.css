@@ -6,6 +6,6 @@
   body {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 18px;
-    background-color: #fafafa;
+    @apply bg-light-gray-100 dark:bg-dark-blue-900;
   }
 }
