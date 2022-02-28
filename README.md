@@ -26,6 +26,9 @@
     Keep track of your daily tasks
     <br />
   </p>
+  <p align="center">
+    Challenge by <a href="https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW">Frontend Mentor</a>
+  </p>
 </p>
 
 # :bookmark_tabs: Table of Contents
