@@ -1,6 +1,6 @@
 <!-- PROJECT LOGO -->
 <br />
-<p align="center">
+<div align="center">
   <a href="https://todo-app-saullbrandao.vercel.app/">
     <img src="https://img.icons8.com/fluency/96/000000/tasklist.png" alt='logo'/>
     
@@ -29,7 +29,7 @@
   <p align="center">
     Challenge by <a href="https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW">Frontend Mentor</a>
   </p>
-</p>
+</div>
 
 # :bookmark_tabs: Table of Contents
 
